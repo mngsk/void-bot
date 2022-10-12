@@ -1,0 +1,19 @@
+{
+  "name": "void-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix . && prettier --write ."
+  },
+  "author": "mngsk",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "prettier": "2.7.1"
+  }
+}
