@@ -3,11 +3,11 @@
 # configuration
 clone_url=https://github.com/void-linux/void-packages.git
 branch=master
-data_dir=.
+data_dir=/path/to/data/dir
 repo_dir="$data_dir/repo"
 lastrun_file="$data_dir/lastrun"
-home_dir=.
-notify_script="$home_dir/notify.js"
+base_dir=/path/to/base/dir
+notify_script="$base_dir/notify.js"
 
 # directory validations
 if [ ! -d "$data_dir" ]; then
