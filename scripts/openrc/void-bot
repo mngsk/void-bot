@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+
+# OpenRC service script (for Alpine Linux)
+# https://wiki.alpinelinux.org/wiki/OpenRC
+# https://github.com/OpenRC/openrc/blob/master/service-script-guide.md
+# https://www.mankier.com/8/openrc-run
+
+name="void-bot"
+description="Void Bot"
+directory=/home/void-bot/void-bot
+command=/usr/bin/node
+command_args=index.js
+command_background=true
+command_user="void-bot:void-bot"
+pidfile="/run/${RC_SVCNAME}.pid"
+output_log="/var/log/${RC_SVCNAME}"
