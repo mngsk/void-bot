@@ -84,4 +84,24 @@ module.exports = {
 
     return data.users[userId] || [];
   },
+
+  async clearPackages(userId) {
+    const data = await loadData();
+
+    const packages = data.users[userId] || [];
+    for (const _package of packages) {
+      data.packages[_package] = data.packages[_package].filter(
+        (uId) => uId !== userId
+      );
+      if (data.packages[_package].length === 0) {
+        delete data.packages[_package];
+      }
+    }
+
+    delete data.users[userId];
+
+    await saveData(data);
+
+    return [];
+  },
 };

@@ -11,6 +11,7 @@ Currently, the following commands are implemented:
 - `/watch <package>` Adds the specified package to the user's watchlist
 - `/unwatch <package>` Removes the specified package from the user's watchlist
 - `/list` Enumerates the packages on the user's watchlist
+- `/clear` Removes all packages from the user's watchlist
 
 The bot periodically checks for updates on the
 [void-packages](https://github.com/void-linux/void-packages) repository and
