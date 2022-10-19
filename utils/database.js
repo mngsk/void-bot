@@ -1,6 +1,6 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
-const { dataDir } = require("./config.json");
+const { dataDir } = require("../config.json");
 
 async function loadData() {
   const dataFile = path.join(dataDir, "data.json");
