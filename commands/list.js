@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { getPackages } = require("../database.js");
+const { getPackages } = require("../utils/database.js");
 const { formatPackages } = require("../utils/packages.js");
 
 module.exports = {

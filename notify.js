@@ -1,5 +1,5 @@
 const { Client } = require("discord.js");
-const { getUsers } = require("./database.js");
+const { getUsers } = require("./utils/database.js");
 const { token } = require("./config.json");
 
 const readable = process.stdin;
