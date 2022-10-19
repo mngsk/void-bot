@@ -2,7 +2,6 @@
 
 # configuration
 clone_url=https://github.com/void-linux/void-packages.git
-branch=master
 data_dir=/path/to/data/dir
 repo_dir="$data_dir/repo"
 lastrun_file="$data_dir/lastrun"
@@ -14,7 +13,7 @@ if [ ! -d "$data_dir" ]; then
   mkdir -p "$data_dir"
 fi
 if [ ! -d "$repo_dir" ]; then
-  git clone --quiet --bare --branch "$branch" --depth 10 "$clone_url" "$repo_dir"
+  git clone --quiet --depth 10 "$clone_url" "$repo_dir"
 fi
 
 # date calculations
@@ -29,7 +28,7 @@ echo "$current_date" > "$lastrun_file"
 
 # get latest commits
 cd "$repo_dir"
-git fetch --quiet
+git pull --quiet
 log=$(git log --since="$lastrun" --pretty=format:"%s")
 
 if [ ! -z "$log" ]; then
