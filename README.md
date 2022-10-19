@@ -17,16 +17,46 @@ The bot periodically checks for updates on the
 [void-packages](https://github.com/void-linux/void-packages) repository and
 notifies the users subscribed to them.
 
-## Instructions
+## Configuration
 
-Setup the [cronjob.sh](./scripts/cronjob.sh) file to run periodically, for
-example, using `crontab` to execute it every 15 minutes:
+Follow this
+[guide on how to set up a bot application](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
+, followed by this
+[guide on how to add the bot to a server](https://discordjs.guide/preparations/adding-your-bot-to-servers.html#creating-and-using-your-invite-link)
+. You will need the bot's `tokenId` and `clientId`, as well as your server
+`guildId`.
+
+Fill the [config.json](./config.json) file with the corresponding values.
+
+You must also specify a data directory, both in the config file and the
+[cronjob.sh](./scripts/cronjob.sh) file (must be the same in both places).
+
+## Usage
+
+1. Install the project's dependencies
 
 ```sh
-$ crontab -e
+npm install
 ```
 
+2. Deploy the commands to your server (only the first time or after adding new
+commands)
+
+```sh
+node deploy-commands.js
 ```
+
+3. Start listening for commands
+
+```sh
+node index.js
+```
+
+4. Install the cronjob (for example, to run every 15 minutes)
+
+```sh
+crontab -e
+
 0,15,30,45 * * * * /full/path/to/cronjob.sh
 ```
 
@@ -34,26 +64,6 @@ The cronjob will obtain the commit messages since the last time it ran and send
 them to the [notify.js](./notify.js) Node.js application, which will parse them
 and send the corresponding messages to the users who have those packages on
 their watchlists.
-
-For the Discord commands to work, the main Node.js application must be running,
-and the bot must be already integrated to the server. See the
-[discord.js guide](https://discordjs.guide/preparations/adding-your-bot-to-servers.html#creating-and-using-your-invite-link)
-for instruction on how to generate an invite link.
-
-```sh
-$ npm install
-$ node index.js
-```
-
-## Configuration
-
-You need to configure the bot's `token` and `clientId`, as well as the `guildId`
-of your server on the [config.json](./config.json) file. See the
-[discord.js guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
-for more information on how to set it up.
-
-You must also specify a data directory, both in the config file and cronjob
-file (must be the same in both places).
 
 ## License
 
