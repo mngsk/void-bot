@@ -13,13 +13,13 @@ readable.on("readable", () => {
 });
 readable.on("end", async () => {
   const content = chunks.join("");
-  await parse(content);
+  const updates = await parse(content);
+  await notify(updates);
 });
 
 async function parse(content) {
   const lines = content.split("\n");
-  const updates = lines.map((l) => l.split(/:\s?/));
-  await notify(updates);
+  return lines.map((l) => l.split(/:\s?/));
 }
 
 async function notify(updates) {
