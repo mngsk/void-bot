@@ -40,7 +40,7 @@ npm install
 ```
 
 2. Deploy the commands to your server (only the first time or after adding new
-commands)
+   commands)
 
 ```sh
 node deploy-commands.js

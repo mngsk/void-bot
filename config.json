@@ -2,5 +2,6 @@
   "token": "",
   "clientId": "",
   "guildId": "",
-  "dataDir": ""
+  "dataDir": "",
+  "updateChannelId": ""
 }
