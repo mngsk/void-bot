@@ -6,7 +6,7 @@ data_dir=/path/to/data/dir
 repo_dir="$data_dir/repo"
 lastrun_file="$data_dir/lastrun"
 base_dir=/path/to/base/dir
-notify_script="$base_dir/notify.js"
+notify_script="$base_dir/commit-parser.js"
 
 # directory validations
 if [ ! -d "$data_dir" ]; then

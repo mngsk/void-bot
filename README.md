@@ -61,7 +61,7 @@ crontab -e
 ```
 
 The cronjob will obtain the commit messages since the last time it ran and send
-them to the [notify.js](./notify.js) Node.js application, which will parse them
+them to the [commit-parser.js](./commit-parser.js) Node.js application, which will parse them
 and send the corresponding messages to the users who have those packages on
 their watchlists.
 
